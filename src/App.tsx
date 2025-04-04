@@ -1,12 +1,10 @@
-import { Main } from './1.1-components/functional/main'
+/*import { Main } from "./1.1-components/functional/main";*/
+import { DropdownList } from "./1.2-events/dropdownList";
 
-function App() {
-
+export const App = () => {
   return (
     <>
-      <Main />
+      <DropdownList />
     </>
-  )
-}
-
-export default App
+  );
+};
