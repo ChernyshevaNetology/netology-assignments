@@ -1,10 +1,10 @@
 /*import { Main } from "./1.1-components/functional/main";*/
-import { DropdownList } from "./1.2-events/dropdownList";
+import { DropDownPage } from "./1.2-events/drop-down-page.tsx";
 
 export const App = () => {
   return (
     <>
-      <DropdownList />
+      <DropDownPage />
     </>
   );
 };

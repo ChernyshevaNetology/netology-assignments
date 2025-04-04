@@ -1,12 +1,12 @@
-import styles from "./dropDown.module.css";
+import "./drop-down-styles.css";
 
 export const Dropdown = () => {
   return (
-    <div>
-      <button data-id="toggle" className={styles.btn}>
+    <>
+      <button className={"btn"}>
         <span>Account Settings</span>
-        <i className={styles.materialIcons}>public</i>
+        <i className={"material-icons"}>public</i>
       </button>
-    </div>
+    </>
   );
 };

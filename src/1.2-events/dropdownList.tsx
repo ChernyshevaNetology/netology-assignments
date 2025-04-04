@@ -1,5 +1,5 @@
-import { Dropdown } from "./dropdown.tsx";
-import styles from "./dropDown.module.css";
+import "./drop-down-styles.css";
+import cn from "classnames";
 
 export const DropdownList = () => {
   const linkData: string[] = [
@@ -11,16 +11,13 @@ export const DropdownList = () => {
 
   return (
     <>
-      <div className={styles.container}>
-        <div data-id="wrapper" className={styles.dropdownWrapper}>
-          <Dropdown />
-          <ul data-id="dropdown" className={styles.dropdown}>
-            {linkData.map((link) => (
-              <li key={link}>{link}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <ul data-id="dropdown" className={"dropdown"}>
+        {linkData.map((link, idx) => (
+          <li className={cn({ active: idx === 2 })} key={link}>
+            <a href="#">{link}</a>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
