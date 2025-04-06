@@ -1,9 +1,14 @@
+import { MouseEventHandler } from "react";
 import "./drop-down-styles.css";
 
-export const Dropdown = () => {
+type TDropdownListProps = {
+  handleDisplayDropdown: MouseEventHandler<HTMLButtonElement>;
+};
+
+export const Dropdown = ({ handleDisplayDropdown }: TDropdownListProps) => {
   return (
     <>
-      <button className={"btn"}>
+      <button className={"btn"} onClick={handleDisplayDropdown}>
         <span>Account Settings</span>
         <i className={"material-icons"}>public</i>
       </button>
