@@ -1,7 +1,7 @@
-export const Toolbar = ({ title, onSelectFilter }) => {
+export const Toolbar = ({ selected, title, activeFilterSelect }) => {
   return (
     <>
-      <button onClick={onSelectFilter}>{title}</button>
+      <button onClick={activeFilterSelect}>{title}</button>
     </>
   );
 };

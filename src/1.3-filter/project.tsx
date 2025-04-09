@@ -1,7 +1,7 @@
-export const Project = ({ img }) => {
+export const Project = ({ img, imgTitle }) => {
   return (
     <div>
-      <img src={img} alt="Project" />
+      <img src={img} alt={imgTitle} />
     </div>
   );
 };
