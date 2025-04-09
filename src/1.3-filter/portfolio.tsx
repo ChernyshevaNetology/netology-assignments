@@ -1,37 +1,41 @@
-/*import {useState} from "react";*/
+import { useState } from "react";
 import { Toolbar } from "./toolbar.tsx";
-import { ProjectList } from "./projectList.tsx";
-import { Project } from "./project.tsx";
+import { projects } from "./projectList.tsx";
+import { ProjectsList } from "./project.tsx";
 import "./styles.css";
 
+const filterProjectsByCategory = (projects: any, category: string) => {
+  if (category === "All") {
+    return projects;
+  }
+
+  return projects.filter((project: any) => project.category === category);
+};
+
 export const Portfolio = () => {
-  /*    const [activeFilter, setActiveFilter] = useState(activeFilter);*/
-  const filters = [
-    { button: "All" },
-    { button: "Websites" },
-    { button: "Flayers" },
-    { button: "Business Cards" },
+  const [selected, setSelected] = useState("All");
+  const filters: string[] = [
+    "All",
+    "Websites",
+    "Flayers",
+    "Business Cards",
+    "RUdi",
+    "Puzo",
   ];
-  /*    const activeFilterSelect = () => {
-                            setActiveFilter(activeFilter);
-                        };*/
+  const onSelectFilter = (clickedFilter: string) => {
+    setSelected(clickedFilter);
+  };
+
+  const preparedProjects = filterProjectsByCategory(projects, selected);
+
   return (
     <div className="container">
-      <div className="filters">
-        {filters.map((filter) => (
-          <Toolbar
-            title={filter.button}
-            activeFilterSelect={(filter: any) => {
-              console.log(filter);
-            }}
-          />
-        ))}
-      </div>
-      <div className="projects">
-        {ProjectList.map(({ img }) => (
-          <Project img={img} />
-        ))}
-      </div>
+      <Toolbar
+        filters={filters}
+        selected={selected}
+        onSelectFilter={onSelectFilter}
+      />
+      <ProjectsList projects={preparedProjects} />
     </div>
   );
 };

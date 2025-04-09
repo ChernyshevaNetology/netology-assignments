@@ -1,9 +1,13 @@
 import "./styles.css";
 
-export const Project = ({ img, imgTitle }) => {
+export const ProjectsList = ({ projects }: any) => {
   return (
-    <div>
-      <img className="image" src={img} alt={imgTitle} />
+    <div className={"projects"}>
+      {projects.map(({ img, imgTitle }: any) => (
+        <div>
+          <img className="image" src={img} alt={imgTitle} />
+        </div>
+      ))}
     </div>
   );
 };
