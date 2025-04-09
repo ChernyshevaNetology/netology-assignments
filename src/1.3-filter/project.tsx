@@ -1,7 +1,9 @@
+import "./styles.css";
+
 export const Project = ({ img, imgTitle }) => {
   return (
     <div>
-      <img src={img} alt={imgTitle} />
+      <img className="image" src={img} alt={imgTitle} />
     </div>
   );
 };

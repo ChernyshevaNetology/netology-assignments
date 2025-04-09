@@ -2,6 +2,7 @@
 import { Toolbar } from "./toolbar.tsx";
 import { ProjectList } from "./projectList.tsx";
 import { Project } from "./project.tsx";
+import "./styles.css";
 
 export const Portfolio = () => {
   /*    const [activeFilter, setActiveFilter] = useState(activeFilter);*/
@@ -15,18 +16,22 @@ export const Portfolio = () => {
                             setActiveFilter(activeFilter);
                         };*/
   return (
-    <div>
-      {filters.map((filter) => (
-        <Toolbar
-          title={filter.button}
-          activeFilterSelect={(filter: any) => {
-            console.log(filter);
-          }}
-        />
-      ))}
-      {ProjectList.map(({ img }) => (
-        <Project img={img} />
-      ))}
+    <div className="container">
+      <div className="filters">
+        {filters.map((filter) => (
+          <Toolbar
+            title={filter.button}
+            activeFilterSelect={(filter: any) => {
+              console.log(filter);
+            }}
+          />
+        ))}
+      </div>
+      <div className="projects">
+        {ProjectList.map(({ img }) => (
+          <Project img={img} />
+        ))}
+      </div>
     </div>
   );
 };
