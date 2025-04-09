@@ -11,12 +11,10 @@ export const Toolbar = ({
   selected: string;
   onSelectFilter: (filter: string) => void;
 }) => {
-  console.log("filters", filters);
-  console.log("selected", selected);
   return (
     <>
       <div className="filters">
-        {filters.map((filter, idx) => (
+        {filters.map((filter: string, idx: number) => (
           <div
             onClick={() => onSelectFilter(filter)}
             className={cn("toolbar-item", "cock", "rudi", "puzo", {

@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Toolbar } from "./toolbar.tsx";
-import { projects } from "./projectList.tsx";
+import { projects } from "./projects-data.ts";
 import { ProjectsList } from "./project.tsx";
+import { TProject } from "./types.ts";
 import "./styles.css";
 
-const filterProjectsByCategory = (projects: any, category: string) => {
+const filterProjectsByCategory = (projects: TProject[], category: string) => {
   if (category === "All") {
     return projects;
   }
 
-  return projects.filter((project: any) => project.category === category);
+  return projects.filter((project: TProject) => project.category === category);
 };
 
 export const Portfolio = () => {
-  const [selected, setSelected] = useState("All");
+  const [selected, setSelected] = useState<string>("All");
   const filters: string[] = [
     "All",
     "Websites",
